@@ -1,0 +1,171 @@
+{
+  "name": "wildai-vscode",
+  "displayName": "WildAI Assistant",
+  "description": "Official WildAI extension for Visual Studio Code: streaming sidebar assistant, intelligent code refactoring, and automated test generation.",
+  "version": "0.1.0",
+  "publisher": "wildai-poland",
+  "icon": "assets/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Programming Languages",
+    "Snippets",
+    "Machine Learning",
+    "Education"
+  ],
+  "keywords": [
+    "wildai",
+    "ai",
+    "assistant",
+    "copilot",
+    "coding",
+    "grok",
+    "refactor",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wildai-poland/wildai-vscode.git"
+  },
+  "homepage": "https://v2.wildai.pl",
+  "bugs": {
+    "url": "https://github.com/wildai-poland/wildai-vscode/issues"
+  },
+  "license": "MIT",
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:wildai.chatView"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "wildai-sidebar",
+          "title": "WildAI",
+          "icon": "assets/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "wildai-sidebar": [
+        {
+          "type": "webview",
+          "id": "wildai.chatView",
+          "name": "WildAI Chat",
+          "visibility": "visible"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "wildai.openChat",
+        "title": "WildAI: Open Chat Sidebar",
+        "category": "WildAI"
+      },
+      {
+        "command": "wildai.explainCode",
+        "title": "WildAI: Explain Selected Code",
+        "category": "WildAI"
+      },
+      {
+        "command": "wildai.refactorCode",
+        "title": "WildAI: Refactor Selected Code",
+        "category": "WildAI"
+      },
+      {
+        "command": "wildai.generateTests",
+        "title": "WildAI: Generate Unit Tests",
+        "category": "WildAI"
+      },
+      {
+        "command": "wildai.fixBugs",
+        "title": "WildAI: Fix Potential Bugs",
+        "category": "WildAI"
+      },
+      {
+        "command": "wildai.setApiKey",
+        "title": "WildAI: Set API Token / Key",
+        "category": "WildAI"
+      },
+      {
+        "command": "wildai.clearChat",
+        "title": "WildAI: Clear Conversation",
+        "category": "WildAI"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "wildai.editorContextMenu",
+          "group": "wildai@1"
+        }
+      ],
+      "wildai.editorContextMenu": [
+        {
+          "command": "wildai.explainCode",
+          "group": "1_actions@1"
+        },
+        {
+          "command": "wildai.refactorCode",
+          "group": "1_actions@2"
+        },
+        {
+          "command": "wildai.generateTests",
+          "group": "1_actions@3"
+        },
+        {
+          "command": "wildai.fixBugs",
+          "group": "1_actions@4"
+        }
+      ],
+      "submenus": [
+        {
+          "id": "wildai.editorContextMenu",
+          "label": "WildAI"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "WildAI",
+      "properties": {
+        "wildai.apiUrl": {
+          "type": "string",
+          "default": "https://v2.wildai.pl/api",
+          "description": "WildAI backend API endpoint URL."
+        },
+        "wildai.model": {
+          "type": "string",
+          "default": "wildai-default",
+          "description": "Default AI model identifier."
+        },
+        "wildai.temperature": {
+          "type": "number",
+          "default": 0.7,
+          "minimum": 0,
+          "maximum": 2,
+          "description": "Sampling temperature for model generation."
+        },
+        "wildai.streamResponse": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable real-time token streaming in chat sidebar."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --minify",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.0"
+  }
+}
