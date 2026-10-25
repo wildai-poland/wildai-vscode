@@ -102,9 +102,9 @@ export class WildAiChatViewProvider implements vscode.WebviewViewProvider {
     const token = await this._secretStorage.get('wildai.apiToken');
     const config = vscode.workspace.getConfiguration('wildai');
     this._client.updateOptions({
-      apiUrl: config.get<string>('apiUrl', 'https://v2.wildai.pl/api'),
+      apiUrl: config.get<string>('apiUrl', 'https://chat.wildai.pl/api/chat'),
       apiToken: token,
-      model: config.get<string>('model', 'wildai-default'),
+      model: config.get<string>('model', 'deepseek-v4.1-flash-uncensored'),
       temperature: config.get<number>('temperature', 0.7),
     });
 

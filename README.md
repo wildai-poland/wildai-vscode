@@ -55,7 +55,7 @@ To run in development mode, open the repository in VS Code and press **F5** to l
 
 1. Press `Cmd + Shift + P` (macOS) or `Ctrl + Shift + P` (Linux/Windows).
 2. Type `WildAI: Set API Token / Key` and press Enter.
-3. Paste your WildAI authorization token from [v2.wildai.pl](https://v2.wildai.pl).
+3. Paste your WildAI authorization token from [chat.wildai.pl](https://chat.wildai.pl).
 
 ---
 
@@ -65,8 +65,8 @@ Customize behavior via `Settings -> Extensions -> WildAI`:
 
 | Setting | Default | Description |
 | :--- | :--- | :--- |
-| `wildai.apiUrl` | `https://v2.wildai.pl/api` | API backend URL for inference and completions. |
-| `wildai.model` | `wildai-default` | Default model identifier for chat completions. |
+| `wildai.apiUrl` | `https://chat.wildai.pl/api/chat` | API backend URL for inference and completions. |
+| `wildai.model` | `deepseek-v4.1-flash-uncensored` | Default model identifier for chat completions. |
 | `wildai.temperature` | `0.7` | Sampling temperature (`0.0` - `2.0`). |
 | `wildai.streamResponse` | `true` | Enable real-time token streaming. |
 

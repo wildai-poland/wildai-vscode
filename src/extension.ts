@@ -6,8 +6,8 @@ export function activate(context: vscode.ExtensionContext) {
   const config = vscode.workspace.getConfiguration('wildai');
 
   const client = new WildAiClient({
-    apiUrl: config.get<string>('apiUrl', 'https://v2.wildai.pl/api'),
-    model: config.get<string>('model', 'wildai-default'),
+    apiUrl: config.get<string>('apiUrl', 'https://chat.wildai.pl/api/chat'),
+    model: config.get<string>('model', 'deepseek-v4.1-flash-uncensored'),
     temperature: config.get<number>('temperature', 0.7),
   });
 

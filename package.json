@@ -2,7 +2,7 @@
   "name": "wildai-vscode",
   "displayName": "WildAI Assistant",
   "description": "Official WildAI extension for Visual Studio Code: streaming sidebar assistant, intelligent code refactoring, and automated test generation.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "wildai-poland",
   "icon": "assets/icon.png",
   "engines": {
@@ -29,7 +29,7 @@
     "type": "git",
     "url": "https://github.com/wildai-poland/wildai-vscode.git"
   },
-  "homepage": "https://v2.wildai.pl",
+  "homepage": "https://chat.wildai.pl",
   "bugs": {
     "url": "https://github.com/wildai-poland/wildai-vscode/issues"
   },
@@ -132,12 +132,12 @@
       "properties": {
         "wildai.apiUrl": {
           "type": "string",
-          "default": "https://v2.wildai.pl/api",
+          "default": "https://chat.wildai.pl/api/chat",
           "description": "WildAI backend API endpoint URL."
         },
         "wildai.model": {
           "type": "string",
-          "default": "wildai-default",
+          "default": "deepseek-v4.1-flash-uncensored",
           "description": "Default AI model identifier."
         },
         "wildai.temperature": {
